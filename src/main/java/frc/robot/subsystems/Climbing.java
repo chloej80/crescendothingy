@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Ports;
+import frc.robot.Constants;
+
 public class Climbing extends SubsystemBase {
 
     private TalonFX leader;
@@ -26,21 +28,54 @@ public class Climbing extends SubsystemBase {
       digiInputHigh = new DigitalInput(Ports.ClimbingPorts.digiInputHighPort);
     }
 
-    public static Command ClimbDownCmd () {
-
+    public  Command ClimbDownCmd () {
+      if (beambreaklow()) {
+        return this.run (() -> StopMotorsCmd());
+      } else {
+        return this.run (() -> RunMotorsDown());
+      }
     }
     
-    public static Command ClimbUpCmd () {
+    public  Command ClimbUpCmd () {
+      if (beambreakhigh()) {
+        return this.run (() -> StopMotorsCmd());
+
+      } else {
+        return this.run (() -> RunMotorsUP());
+        
+      }
+    }
+
+    public  Command StopMotorsCmd () {
+
+     return this.run (() -> StopMotors());
 
     }
 
-    public static void ClimbDown () {
-
+    public void RunMotorsUP () {
+      leader.set(Constants.ClimbingConstants.RUN);
+      follower.set(Constants.ClimbingConstants.RUN);
     }
 
-    public static void ClimbUp () {
+    public void RunMotorsDown () {
+      leader.set(-Constants.ClimbingConstants.RUN);
+      follower.set(-Constants.ClimbingConstants.RUN);
+    }
+ 
+    public boolean beambreaklow () {
+      return !digiInputLow.get();
+    }
+
+    public boolean beambreakhigh () {
+      return !digiInputHigh.get();
+    }
+
+    public void StopMotors () {
+      leader.set(0);
+      follower.set(0);
 
     }
+  
 
     
 
