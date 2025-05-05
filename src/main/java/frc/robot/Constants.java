@@ -25,4 +25,26 @@ public final class Constants {
     public static final int HOPPERRUN = 0;
     public static final int INTAKERUN = 0;
   }
+
+  public static class ShooterConstants {
+    public static final int SHOOTER_RUN = 0;
+    
+    public static final int SHOOTER_ANGLE_MAX = 0;
+    public static final int SHOOTER_ANGLE_MIN = 0;
+
+    public static final double SHOOTER_ANGLE_SPEED = 0.0;
+
+    public static final double POS_CFACTOR = 360.0;
+
+    public static final double kP = 0;
+    public static final double kI = 0;
+    public static final double kD = 0;
+
+    public static final double kS = 0;
+    public static final double kG = 0;
+    public static final double kV = 0;
+    public static final double kA = 0;
+
+    public static final double TICKS_PER_REVOLUTION = 2048.0; // Example value, adjust as needed
+  }
 }

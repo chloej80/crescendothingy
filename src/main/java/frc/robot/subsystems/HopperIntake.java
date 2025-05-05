@@ -118,8 +118,8 @@ public class HopperIntake extends SubsystemBase {
     public void StopMotors () {
         intakeLeader.set(0);
         intakeFollower.set(0);
-        intakeLeader.set(0);
-        intakeFollower.set(0);
+        hopperLeader.set(0);
+        hopperFollower.set(0);
     }
 
     public  Command IntakeStopMotorsCmd () {

@@ -12,16 +12,12 @@ public class Climbing extends SubsystemBase {
 
     private TalonFX leader;
     private TalonFX follower;
-    private TalonFXConfiguration leaderConfig;
-    private TalonFXConfiguration followerConfig;
     private DigitalInput digiInputLow;
     private DigitalInput digiInputHigh;
 
     public Climbing () {
       leader = new TalonFX (Ports.ClimbingPorts.leaderPort);
       follower = new TalonFX (Ports.ClimbingPorts.followPort);
-      leaderConfig = new TalonFXConfiguration();
-      followerConfig = new TalonFXConfiguration();
       leader.setNeutralMode(NeutralModeValue.Brake);
       follower.setNeutralMode(NeutralModeValue.Brake);
       digiInputLow = new DigitalInput(Ports.ClimbingPorts.digiInputLowPort);
