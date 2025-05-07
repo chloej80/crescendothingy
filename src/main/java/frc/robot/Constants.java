@@ -47,4 +47,8 @@ public final class Constants {
 
     public static final double TICKS_PER_REVOLUTION = 2048.0; // Example value, adjust as needed
   }
+
+  public static class DriveConstants {
+    public static final int DESIRED_SPEED = 0;// Example value, adjust as needed
+  }
 }
